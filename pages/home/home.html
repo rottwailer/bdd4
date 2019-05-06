@@ -1,0 +1,34 @@
+<ion-header>
+ <ion-navbar color="primary">
+    <ion-title>
+      <ion-icon name="clipboard"> Notas</ion-icon>
+    </ion-title>
+      <ion-buttons end>
+
+    <button ion-button icon-only (click)= "anyadirNota()">
+      <ion-icon name="add-circle"></ion-icon>
+    </button>
+  </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<<ion-content padding>
+<ion-list><!-- ul-->
+  <ion-item-sliding *ngFor= "let nota of notasArray"  >
+
+  <ion-item ><!-- li-->
+      <ion-icon name="clipboard"> </ion-icon>
+    <h2>{{ nota.tittle}}</h2>
+    <p>{{nota.texto}}</p>
+        <button ion-button clear item-end (click)="editarNota(nota.id)">Editar</button>
+  </ion-item>
+  <ion-item-options side="right">
+      <button ion-button color="danger" (click)="eliminarNota(nota)">
+        <ion-icon name="trash"></ion-icon>
+        eliminar
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+</ion-content>
